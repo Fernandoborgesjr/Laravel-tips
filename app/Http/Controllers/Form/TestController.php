@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Form;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class TestController extends Controller
 {
@@ -15,7 +16,8 @@ class TestController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('listAllUser', ['users' => $users]);
     }
 
     /**
@@ -25,7 +27,7 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+        return view('createUser');
     }
 
     /**
@@ -36,7 +38,12 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return redirect()->route('user.index');
     }
 
     /**
@@ -47,7 +54,7 @@ class TestController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('listUser', ['user' => $user]);
     }
 
     /**
@@ -58,7 +65,7 @@ class TestController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('editUser', ['user' => $user]);
     }
 
     /**
@@ -70,7 +77,15 @@ class TestController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->name = $request->name;
+        if (!empty($request->email)){
+            $user->email = $request->email;
+        }
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        return redirect()->route('user.index');
     }
 
     /**
@@ -81,6 +96,7 @@ class TestController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('user.index');
     }
 }
