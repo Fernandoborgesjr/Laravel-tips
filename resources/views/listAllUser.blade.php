@@ -34,6 +34,7 @@
     </tr>
     @endforeach
 </table>
+<a href="https://www.youtube.com/watch?v=_fDd_RKKWzk&list=PLi_gvjv-JgXqop7hgVKZMGPiT9rUYy1sr&index=4&ab_channel=RobsonV.Leite" target="_blank">Episódio 4</a>
 
 </body>
 </html>
