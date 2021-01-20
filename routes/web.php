@@ -18,3 +18,6 @@ Route::get('/', function () {
 Route::resource('usuarios', 'Form\\TestController')
 ->names('user')
 ->parameters(['usuarios'=> 'user']);
+
+Route::get('posts', 'PostController@showForm')->name('posts');
+Route::post('/debug', 'PostController@debug')->name('debug');

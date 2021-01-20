@@ -76,7 +76,8 @@
             <div class="links">
                 <a href="{{ route('user.index') }}">Episódio 4 - CRUD</a>
                 <a href="https://www.youtube.com/watch?v=3lDJOvzyTlg&list=PLi_gvjv-JgXqop7hgVKZMGPiT9rUYy1sr&index=5&ab_channel=RobsonV.Leite">Episódio 5 - Migrations</a>
-
+                <a href="{{ route('posts') }}">Episódio 6 - Model and business rules</a>
+            
             </div>
         </div>
     </div>

@@ -18,7 +18,5 @@
         <input name="password" type="password">
         <input type="submit" value="Cadastrar usuário" style="margin-top: 10px;">
     </form>
-
-    
 </body>
 </html>
