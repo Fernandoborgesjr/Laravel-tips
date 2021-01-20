@@ -13,6 +13,15 @@
 
 <p>{{ $user->email }}</p>
 <p>{{ date('d/m/Y H:i', strtotime($user->created_at)) }}</p>
+<p>Rua: {{ $address->street }}</p>
+<p>Número: {{ $address->number }}</p>
+<p>Cidade: {{ $address->city }}</p>
+<p>Estado: {{ $address->state }}</p>
+<h1>Posts</h1>
+@foreach ($posts as $post)
+<p>Titulo: {{ $post->title }}</p>
+@endforeach
+
 
 </body>
 </html>

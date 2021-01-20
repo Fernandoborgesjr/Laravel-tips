@@ -22,4 +22,25 @@ class PostController extends Controller
         $post->save();
         //$post->create($request->except(['_token']));
     }
+
+    public function show(Post $post){
+        echo "<h1>Artigo:</h1>";
+        echo "<p>#{$post->id} {$post->title} {$post->content}</p>";
+        
+        $user = $post->author()->first();
+        
+        echo "<h1>Usuario:</h1>";
+        echo "<p>#{$user->id} {$user->name} {$user->email}</p>";
+
+
+        $categories = $post->categories()->get();
+
+        if($categories){
+            echo "<h1>Categorias:</h1>";
+            foreach($categories as $category){
+            echo "<p>#{$category->id} {$category->title}</p>";
+        }
+
+        }
+    }
 }

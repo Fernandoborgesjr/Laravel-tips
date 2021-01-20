@@ -14,4 +14,12 @@ class Post extends Model
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
     }
+
+    public function author(){
+        return $this->belongsTo(User::class,'author','id');
+    }
+
+    public function categories(){
+        return $this->belongsToMany(Category::class,'posts_categories', 'post','category');
+    }
 }

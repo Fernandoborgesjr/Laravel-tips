@@ -54,7 +54,9 @@ class TestController extends Controller
      */
     public function show(User $user)
     {
-        return view('listUser', ['user' => $user]);
+        $address = $user->address()->first();
+        $posts = $user->posts()->get();
+        return view('listUser', ['user' => $user, 'address'=>$address, 'posts'=>$posts]);
     }
 
     /**

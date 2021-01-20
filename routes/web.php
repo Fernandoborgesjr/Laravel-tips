@@ -21,3 +21,6 @@ Route::resource('usuarios', 'Form\\TestController')
 
 Route::get('posts', 'PostController@showForm')->name('posts');
 Route::post('/debug', 'PostController@debug')->name('debug');
+Route::get('/endereco/{address}', 'AddressController@show');
+Route::get('/artigo/{post}', 'PostController@show');
+Route::get('/categoria/{category}', 'CategoryController@show');
