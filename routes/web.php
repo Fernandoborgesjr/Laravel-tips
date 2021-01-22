@@ -24,3 +24,14 @@ Route::post('/debug', 'PostController@debug')->name('debug');
 Route::get('/endereco/{address}', 'AddressController@show');
 Route::get('/artigo/{post}', 'PostController@show');
 Route::get('/categoria/{category}', 'CategoryController@show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AuthController@dashboard')->name('admin');
+Route::get('/admin/login', 'AuthController@showLoginForm')->name('admin.login');
+Route::post('/admin/login/do', 'AuthController@login')->name('admin.login.do');
+Route::get('/admin/logout', 'AuthController@logout')->name('admin.logout');
